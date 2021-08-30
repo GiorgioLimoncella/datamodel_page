@@ -1,0 +1,26 @@
+---
+title: "Data Model"
+output: 
+  html_document:
+    theme: united
+    toc: TRUE
+    toc_float: TRUE
+params:
+  DF_gruops: NULL
+  DF_included: NULL
+  DF_excluded: NULL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+library("readxl")
+library("rmarkdown")
+```
+
+```{r import_file, include=FALSE}
+DM <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"),sheet = "Foglio1")
+```
+
+```{r display_table}
+paged_table(DM)
+```
