@@ -1,0 +1,21 @@
+#-------------------------------
+# ARS - Data Model Visualization Script
+# v0.0 - 30 August 2021
+# authors: Giorgio Limoncella
+# -----------------------------
+
+rm(list=ls(all.names=TRUE))
+
+#set the directories
+if (!require("rstudioapi")) install.packages("rstudioapi")
+thisdir<-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+thisdir<-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+dirbase<-getwd()
+dirinput <- paste0(dirbase,"/i_input/")
+dirmacro <- paste0(thisdir,"/p_macro/")
+
+#render the macro 
+render(paste0(dirmacro,"DM.Rmd"),           
+       output_dir = thisdir,
+       output_file = "index")
