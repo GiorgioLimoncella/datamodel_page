@@ -13,14 +13,33 @@ params:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F)
-library("readxl")
-library("rmarkdown")
+```
+
+```{css}
+h1 {color: #ed008c}
+h2 {color: #00adef}
+h3 {color: #6ccff6}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {background-color: #00adef; border-color: #00adef}
 ```
 
 ```{r import_file, include=FALSE}
-DM <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"),sheet = "Foglio1")
+Description <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "Description", col_names = FALSE)
+DM1 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table1")
+DM2 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table2")
 ```
 
-```{r display_table}
-paged_table(DM)
+## `r Description[1,1]`
+
+`r Description[1,2]`
+
+```{r display_table1}
+paged_table(DM1)
+```
+
+## `r Description[2,1]`
+
+`r Description[2,2]`
+
+```{r display_table2}
+datatable(DM2)
 ```

@@ -6,6 +6,11 @@
 
 rm(list=ls(all.names=TRUE))
 
+#library
+library("readxl")
+library("rmarkdown")
+library("DT")
+
 #set the directories
 if (!require("rstudioapi")) install.packages("rstudioapi")
 thisdir<-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
