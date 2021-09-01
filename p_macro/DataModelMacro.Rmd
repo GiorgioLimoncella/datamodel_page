@@ -1,14 +1,9 @@
 ---
 title: "Data Model"
 output: 
-  html_document:
-    theme: united
-    toc: TRUE
-    toc_float: TRUE
-params:
-  DF_gruops: NULL
-  DF_included: NULL
-  DF_excluded: NULL
+  rmdformats::robobook:
+    toc_depth: 3
+
 ---
 
 ```{r setup, include=FALSE}
@@ -16,10 +11,10 @@ knitr::opts_chunk$set(echo = F)
 ```
 
 ```{css}
-h1 {color: #ed008c}
-h2 {color: #00adef}
-h3 {color: #6ccff6}
-.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {background-color: #00adef; border-color: #00adef}
+h1 {color: #0e038c}
+h2 {color: #1705e8}
+h3 {color: #1705e8}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {background-color: #1705e8; border-color: #1705e8}
 ```
 
 ```{r import_file, include=FALSE}
@@ -28,7 +23,19 @@ DM1 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table1")
 DM2 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table2")
 ```
 
-## `r Description[1,1]`
+<br> 
+
+---
+
+<br>
+
+## First group of DM
+
+---
+
+<br>
+
+### `r Description[1,1]`
 
 `r Description[1,2]`
 
@@ -36,7 +43,16 @@ DM2 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table2")
 paged_table(DM1)
 ```
 
-## `r Description[2,1]`
+<br> 
+
+
+## Second group of DM
+
+---
+
+<br>
+
+### `r Description[2,1]`
 
 `r Description[2,2]`
 

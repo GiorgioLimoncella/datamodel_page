@@ -1,0 +1,60 @@
+---
+title: "Data Model"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+    toc: TRUE
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+#library
+library("readxl")
+library("rmarkdown")
+library("DT")
+
+#set the directories
+if (!require("rstudioapi")) install.packages("rstudioapi")
+thisdir<-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+thisdir<-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+dirbase<-getwd()
+dirinput <- paste0(dirbase,"/i_input/")
+dirmacro <- paste0(thisdir,"/p_macro/")
+
+library("flexdashboard")
+```
+
+
+```{r import_file, include=FALSE}
+Description <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "Description", col_names = FALSE)
+DM1 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table1")
+DM2 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table2")
+```
+
+Column {.tabset}
+-------------------------------------
+   
+### `r Description[1,1]`
+
+`r Description[1,2]`
+
+```{r}
+datatable(DM1)
+``` 
+
+
+-------------------------------------
+
+### `r Description[2,1]`
+
+`r Description[2,2]`
+
+```{r}
+datatable(DM2)
+```
+
+
+
+

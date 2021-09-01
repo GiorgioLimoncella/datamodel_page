@@ -10,6 +10,7 @@ rm(list=ls(all.names=TRUE))
 library("readxl")
 library("rmarkdown")
 library("DT")
+library("rmdformats")
 
 #set the directories
 if (!require("rstudioapi")) install.packages("rstudioapi")
