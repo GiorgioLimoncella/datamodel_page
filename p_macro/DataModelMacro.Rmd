@@ -1,11 +1,14 @@
 ---
 title: "Data Model"
-output: 
-  rmdformats::readthedown:
+output:
+  html_document:
+    toc: true
+    toc_float: true
     toc_depth: 3
-    self_contained: false
-
+    css: styles.css
 ---
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F)
@@ -13,11 +16,13 @@ knitr::opts_chunk$set(echo = F)
 
 
 ```{css}
-h1 {color: #0056b8}
-h2 {color: #0056b8}
-h3 {color: #2387fa}
-.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {background-color: #2387fa; border-color: #2387fa}
+ h1 {color: #0056b8}
+ h2 {color: #0056b8}
+ h3 {color: #2387fa}
+ .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover 
 ```
+
+
 
 
 ```{r import_file, include=FALSE}
@@ -27,50 +32,40 @@ DM2 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table2")
 DM3 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table3")
 ```
 
-In this page the Data Model are described, ...
 
 <br>
 
-## First group of DM
-
----
-
-<br>
-
-### `r Description[1,1]`
-
-`r Description[1,2]`
-
-```{r display_table1}
-paged_table(DM1)
+```{r results='asis'}
+# for (i in 1:2){
+#    cat('  \n')  
+#    cat("#", Description[[i, 1]], "\n") 
+#    cat('  \n')  
+#    cat(Description[[i, 2]], "\n")
+#    cat('\n') 
+#    
+#    table = get(paste0("DM", i))
+#    
+#    # table %>%
+#    #   kbl() %>%
+#    #   kable_material() %>%
+#    #   add_header_above() %>%
+#    #   scroll_box(width = "100%", height = "500px") #width = "100%", height = "400px"
+#     
+#    print(table)
+# 
+#    cat('\n') 
+# }
 ```
 
-<br> 
 
-
-## Second group of DM
-
----
-
-<br>
-
-### `r Description[2,1]`
-
-`r Description[2,2]`
-
-```{r display_table2}
-datatable(DM2)
+```{r , echo=FALSE, results="asis"}
+library(kableExtra)
+for (i in 1:2){
+print(kable(DM1))
+cat("\n")
+}
 ```
 
-<br><br>
-
-### `r Description[3,1]`
-
-`r Description[3,2]`
-
-```{r display_table3}
-kbl(DM2) %>%
-  add_header_above() %>%
-  kable_paper() %>%
-  scroll_box(width = "100%", height = "400px") #width = "100%", height = "400px"
-```
+```{r , echo=FALSE, results="asis"}
+kable_styling(kable(head(DM1)),c("striped","bordered","responsive"))
+```  
