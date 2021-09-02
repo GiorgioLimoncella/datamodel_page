@@ -1,0 +1,18 @@
+---
+title: "Data Model"
+
+output:
+  epuRate::epurate:
+    toc: TRUE
+    code_folding: "hide"
+---
+
+
+<br><br>
+
+## section 1
+
+## section 2
+
+## Conclusion
+

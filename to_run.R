@@ -11,6 +11,12 @@ library("readxl")
 library("rmarkdown")
 library("DT")
 library("rmdformats")
+library("kableExtra")
+
+# library(devtools)
+# install_github("holtzy/epuRate")
+# library(epuRate)
+
 
 #set the directories
 if (!require("rstudioapi")) install.packages("rstudioapi")

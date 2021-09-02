@@ -1,8 +1,9 @@
 ---
 title: "Data Model"
 output: 
-  rmdformats::robobook:
+  rmdformats::readthedown:
     toc_depth: 3
+    self_contained: false
 
 ---
 
@@ -10,22 +11,23 @@ output:
 knitr::opts_chunk$set(echo = F)
 ```
 
+
 ```{css}
-h1 {color: #0e038c}
-h2 {color: #1705e8}
-h3 {color: #1705e8}
-.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {background-color: #1705e8; border-color: #1705e8}
+h1 {color: #0056b8}
+h2 {color: #0056b8}
+h3 {color: #2387fa}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {background-color: #2387fa; border-color: #2387fa}
 ```
+
 
 ```{r import_file, include=FALSE}
 Description <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "Description", col_names = FALSE)
 DM1 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table1")
 DM2 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table2")
+DM3 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table3")
 ```
 
-<br> 
-
----
+In this page the Data Model are described, ...
 
 <br>
 
@@ -58,4 +60,17 @@ paged_table(DM1)
 
 ```{r display_table2}
 datatable(DM2)
+```
+
+<br><br>
+
+### `r Description[3,1]`
+
+`r Description[3,2]`
+
+```{r display_table3}
+kbl(DM2) %>%
+  add_header_above() %>%
+  kable_paper() %>%
+  scroll_box(width = "100%", height = "400px") #width = "100%", height = "400px"
 ```

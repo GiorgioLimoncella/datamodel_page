@@ -1,0 +1,60 @@
+---
+title: "Data Model"
+output: 
+  rmdformats::robobook:
+     css: styles.css
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+```
+
+```{r}
+# ```{css}
+# h1 {color: #0056b8}
+# h2 {color: #0056b8}
+# h3 {color: #2387fa}
+# .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {background-color: #2387fa; border-color: #2387fa}
+# ```
+```
+
+
+```{r import_file, include=FALSE}
+Description <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "Description", col_names = FALSE)
+DM1 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table1")
+DM2 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table2")
+DM3 <- read_excel(paste0(dirinput, "Data_Model_1.xlsx"), sheet = "table3")
+```
+
+<br>
+
+# First group of data model 
+
+___
+
+```{r results='asis'}
+for (i in 1:2){
+   cat('  \n')  
+   cat("##", Description[[i, 1]], "\n") 
+   cat('  \n')  
+   cat(Description[[i, 2]], "\n")
+   cat('\n') 
+   
+   table = get(paste0("DM", i))
+   
+   t = table %>%
+         kbl() %>%
+         kable_material() %>%
+         add_header_above() %>%
+         scroll_box(width = "100%", height = "500px") #width = "100%", height = "400px"
+    
+   cat(t)
+   
+   cat('\n')
+   cat('<br><br><br><br><br><br><br>') 
+   cat('\n')
+}
+```
+
+
