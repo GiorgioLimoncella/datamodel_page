@@ -28,6 +28,6 @@ dirinput <- paste0(dirbase,"/i_input/")
 dirmacro <- paste0(thisdir,"/p_macro/")
 
 #render the macro 
-render(paste0(dirmacro,"DataModelMacro.Rmd"),           
+render(paste0(dirmacro,"DataModelMacro_robobook.Rmd"),           
        output_dir = thisdir,
        output_file = "index")
