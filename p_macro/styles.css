@@ -1,8 +1,13 @@
-table {
-  margin: auto;
-  border-top: 1px solid #666;
-  border-bottom: 1px solid #666;
-}
-table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #eee; }
+table tbody, table thead {display: block;}
+
+table tbody{ overflow: auto; height: 300px;}
+
+th {width: 150px;}
+
+td {width: 150px;}
+
+h1 {color: #000000}
+h2 {color: #0579fc}
+h3 {color: #2387fa}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {background-color: #2387fa; border-color: #2387fa}

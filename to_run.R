@@ -13,11 +13,6 @@ library("DT")
 library("rmdformats")
 library("kableExtra")
 
-# library(devtools)
-# install_github("holtzy/epuRate")
-# library(epuRate)
-
-
 #set the directories
 if (!require("rstudioapi")) install.packages("rstudioapi")
 thisdir<-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
@@ -28,6 +23,6 @@ dirinput <- paste0(dirbase,"/i_input/")
 dirmacro <- paste0(thisdir,"/p_macro/")
 
 #render the macro 
-render(paste0(dirmacro,"DataModelMacro_robobook.Rmd"),           
+render(paste0(dirmacro,"DataModelMacro.Rmd"),           
        output_dir = thisdir,
        output_file = "index")
